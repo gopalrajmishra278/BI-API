@@ -1,0 +1,35 @@
+ spring:
+   datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: system
+    password: root
+   jpa:
+    database-platform: org.hibernate.dialect.Oracle11gDialect
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+        
+ server:
+  port: 9091
+
+---
+#rest api
+spring:
+  application:
+    name: AR_API
+  boot:
+    admin:
+          client:
+            url: http://localhost:8080/
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+ 
